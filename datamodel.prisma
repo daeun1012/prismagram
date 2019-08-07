@@ -1,10 +1,11 @@
 type User {
   id: ID! @id
+  avatar: String
   username: String! @unique
   email: String! @unique
   bio: String
-  followers: [User!]! @relation(name: "FollowerRelation")
-  followings: [User!]! @relation(name: "FollowerRelation")
+  followings: [User!]! @relation(name: "FollowRelation")
+  followers: [User!]! @relation(name: "FollowRelation")
   posts: [Post!]! @relation(name: "PostsOfUer", onDelete: CASCADE)
   likes: [Like!]! @relation(name: "LikesOfUer", onDelete: CASCADE)
   comments: [Comment!]! @relation(name: "CommentsOfUer", onDelete: CASCADE)
